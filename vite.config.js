@@ -8,10 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
-  assetsInclude:[
-    '**/*.glb',
-    '**/*.gltf',
-    '**/*.bin',
-  ],
   base: "/",
 })
