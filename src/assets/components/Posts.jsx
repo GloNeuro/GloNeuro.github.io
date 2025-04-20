@@ -24,17 +24,17 @@ const Posts = () => {
 
   return (
     <>
-    <h2>Blog Posts</h2>
-    <div className='flex'>
-      {posts.map(post => (
-        <div key={post.id}>
-          <Card
-          title={post.title.rendered}
-          
-        />
-        </div>
-      ))}
-    </div>
+      <h2>Blog Posts</h2>
+      <div className='flex'>
+        {posts.map(post => (
+          <div key={post.id}>
+            <Card
+              title={post.title.rendered}
+
+            />
+          </div>
+        ))}
+      </div>
     </>
   );
 };
