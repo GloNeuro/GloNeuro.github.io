@@ -6,7 +6,7 @@ const Card = ({ title, excerpt }) => {
         <>
             <div className="card" style={{overflow: "hidden"}}>
                 <h3 dangerouslySetInnerHTML={{ __html: title }} />
-                <div dangerouslySetInnerHTML={{ __html: excerpt }} />
+                {/* <div dangerouslySetInnerHTML={{ __html: excerpt }} /> */}
             </div>
         </>
     )
