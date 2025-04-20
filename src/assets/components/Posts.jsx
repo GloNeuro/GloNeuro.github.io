@@ -1,25 +1,41 @@
 // src/components/Posts.js
 import React, { useEffect, useState } from 'react';
+import Card from './Card';
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
 
+  const username = import.meta.env.VITE_API_USERNAME;
+  const password = import.meta.env.VITE_API_PASSWORD;
+  const apiRoot = import.meta.env.VITE_API_ROOT;
+
   useEffect(() => {
-    fetch('https://gloneuro.org/wp-json/wp/v2/posts')
+    const base64Credentials = btoa(`${username}:${password}`);
+
+    fetch(`${apiRoot}/pages`, {
+      headers: {
+        'Authorization': `Basic ${base64Credentials}`
+      }
+    })
       .then(res => res.json())
-      .then(data => setPosts(data));
+      .then(data => setPosts(data))
+      .catch(err => console.error('Error fetching posts:', err));
   }, []);
 
   return (
-    <div>
-      <h2>Blog Posts</h2>
+    <>
+    <h2>Blog Posts</h2>
+    <div className='flex'>
       {posts.map(post => (
         <div key={post.id}>
-          <h3 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-          <div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
+          <Card
+          title={post.title.rendered}
+          
+        />
         </div>
       ))}
     </div>
+    </>
   );
 };
 

@@ -1,0 +1,7 @@
+.card
+{
+    width: 20vw;
+    border: 2px solid black;
+    margin: 34px auto;
+    align-content: center;
+}
