@@ -30,7 +30,7 @@ const Card = ({ title, content }) => {
           onClick={closeModal}
         >
           <div
-            className="bg-gray-600 text-white max-h-[90vh] overflow-y-auto p-6 rounded-xl shadow-xl max-w-2xl w-full relative"
+            className="bg-gray-600 text-white max-h-[90vh] overflow-y-auto p-6 rounded-xl shadow-xl max-w-4xl w-full relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
