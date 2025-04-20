@@ -34,7 +34,7 @@ const Card = ({ title, content }) => {
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              className="bg-red-600 hover:bg-red-800 text-white absolute top-0 right-0 px-3 py-1 rounded-full text-lg font-bold"
+              className="!bg-red-600 hover:!bg-red-800 text-white hover:text-amber-400 absolute top-0 right-0 px-3 py-1 rounded-full text-lg font-bold"
               onClick={closeModal}
             >
               ×
