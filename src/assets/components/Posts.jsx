@@ -35,7 +35,7 @@ const Posts = () => {
             <div key={post.id} className="w-full sm:w-1/2 md:w-1/3">
               <Card
                 title={post?.title?.rendered || 'Untitled'}
-                content={post?.excerpt?.rendered || ''}
+                content={post?.content?.rendered || ''}
               />
             </div>
           ))
