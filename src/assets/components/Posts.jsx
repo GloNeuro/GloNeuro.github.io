@@ -25,7 +25,7 @@ const Posts = () => {
   return (
     <>
       <h2>Blog Posts</h2>
-      <div className='flex'>
+      <div className='flex space-x-2.5'>
         {posts.map(post => (
           <div key={post.id}>
             <Card

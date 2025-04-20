@@ -1,7 +1,9 @@
 .card
 {
     width: 20vw;
+    height: 15vw;
     border: 2px solid black;
+    border-radius: 10%;
     margin: 34px auto;
     align-content: center;
 }
