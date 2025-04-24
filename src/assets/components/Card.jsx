@@ -30,20 +30,21 @@ const Card = ({ title, content }) => {
           onClick={closeModal}
         >
           <div
-            className="bg-gray-600 text-white max-h-[90vh] overflow-y-auto p-6 rounded-xl shadow-xl max-w-4xl w-full relative"
+            className="bg-gray-600 max-h-[90vh] overflow-y-auto p-6 rounded-xl shadow-xl max-w-6xl w-full relative scroll-smooth"
             onClick={(e) => e.stopPropagation()}
           >
+
             <button
-              className="!bg-red-600 hover:!bg-red-800 text-white hover:text-amber-400 absolute top-0 right-0 px-3 py-1 rounded-full text-lg font-bold"
+              className="!bg-gray-600 hover:!bg-red-600 text-white hover:text-gray-600 absolute top-0 right-1.5 !px-2 !py-1 !rounded-full !text-lg font-bold"
               onClick={closeModal}
             >
-              ×
+              x
             </button>
             <h3
               className="text-2xl font-bold mb-4 text-center"
               dangerouslySetInnerHTML={{ __html: title }}
             />
-            <div className="text-left space-y-4" dangerouslySetInnerHTML={{ __html: content }} />
+            <div className="post-content prose text-justify space-y-4" dangerouslySetInnerHTML={{ __html: content }} />
           </div>
         </div>
       )}
