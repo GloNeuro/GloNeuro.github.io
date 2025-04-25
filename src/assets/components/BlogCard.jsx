@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './Card.css';
+import './BlogCard.css';
 
-const Card = ({ title, content }) => {
+const BlogCard = ({ title, content }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
@@ -17,7 +17,7 @@ const Card = ({ title, content }) => {
 
   return (
     <>
-      <div className="card cursor-pointer" style={{ overflow: 'hidden' }} onClick={openModal}>
+      <div className="blog-card cursor-pointer" style={{ overflow: 'hidden' }} onClick={openModal}>
         <h3
           className="hover:underline"
           dangerouslySetInnerHTML={{ __html: title }}
@@ -52,4 +52,4 @@ const Card = ({ title, content }) => {
   );
 };
 
-export default Card;
+export default BlogCard;

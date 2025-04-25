@@ -40,3 +40,47 @@
 .read-the-docs {
   color: #888;
 }
+
+/* styles.css or in a <style> block */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 50px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50px;
+}
+
+.scroll-down::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  margin-left: -3px;
+  border-radius: 100%;
+  animation: scrollDown 1.5s infinite;
+  box-sizing: border-box;
+}
+
+@keyframes scrollDown {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(20px); }
+}

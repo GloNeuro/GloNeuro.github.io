@@ -1,6 +1,6 @@
 // src/components/Posts.js
 import React, { useEffect, useState } from 'react';
-import Card from './Card';
+import BlogCard from './BlogCard';
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -33,7 +33,7 @@ const Posts = () => {
         {posts.length > 0 ? (
           posts.map(post => (
             <div key={post.id} className="w-full sm:w-1/2 md:w-1/3">
-              <Card
+              <BlogCard
                 title={post?.title?.rendered || 'Untitled'}
                 content={post?.content?.rendered || ''}
               />

@@ -1,4 +1,4 @@
-.card {
+.blog-card {
     width: 20vw;
     height: 15vw;
     border: 2px solid black;
@@ -10,7 +10,7 @@
     transition: transform 0.2s;
 }
 
-.card:hover {
+.blog-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
 }
