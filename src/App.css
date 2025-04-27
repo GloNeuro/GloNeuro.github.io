@@ -15,10 +15,14 @@
 .scroll-down {
   width: 30px;
   height: 50px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(0, 0, 0, 0.3);
   border-radius: 50px;
   display: inline-block;
   position: relative; /* keeps ::before inside */
+}
+
+.dark .scroll-down {
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .scroll-down::before {
@@ -28,11 +32,15 @@
   left: 50%;
   width: 6px;
   height: 6px;
-  background: #fff;
+  background: #000000;
   margin-left: -3px;
   border-radius: 100%;
   animation: scrollDown 1.5s infinite;
   box-sizing: border-box;
+}
+
+.dark .scroll-down::before {
+  background: #fff;
 }
 
 @keyframes scrollDown {
