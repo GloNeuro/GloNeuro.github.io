@@ -28,8 +28,8 @@ const Posts = () => {
 
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Blog Posts</h2>
-      <div className="flex flex-wrap gap-4 justify-center items-center">
+      <h2 className="text-xl font-bold mb-4 text-center">Blog Posts</h2>
+      <div className="flex flex-wrap gap-4 justify-center items-center text-center">
         {posts.length > 0 ? (
           posts.map(post => (
             <div key={post.id} className="w-full sm:w-1/2 md:w-1/3">

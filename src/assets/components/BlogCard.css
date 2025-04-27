@@ -8,37 +8,58 @@
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s;
-}
-
-.blog-card:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  /* Dark Mode for blog-card */
+  .dark .blog-card {
+    background-color: #1f2937; /* dark gray background */
+    border-color: white;
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+  }
+  
+  .blog-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-}
-
-.post-content img {
+  }
+  
+  /* Dark mode hover */
+  .dark .blog-card:hover {
+    box-shadow: 0 6px 14px rgba(255, 255, 255, 0.2);
+  }
+  
+  .post-content img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
-
-.post-content .wp-block-embed-youtube {
+  }
+  
+  .post-content .wp-block-embed-youtube {
     display: flex;
     justify-content: center;
-}
-
-.post-content .has-background {
+  }
+  
+  .post-content .has-background {
     color: black !important;
     padding: 4px;
     border-radius: 5%;
-}
-
-.post-content figcaption {
+    background-color: white;
+  }
+  
+  /* Dark mode for post-content backgrounds */
+  .dark .post-content .has-background {
+    color: white !important;
+    background-color: #374151; /* darker background */
+  }
+  
+  .post-content figcaption {
     text-align: center;
-}
-
-.post-content .wp-block-list li {
+  }
+  
+  .post-content .wp-block-list li {
     list-style-type: disc;
-    /* This will add the bullets */
     margin-left: 1.5em;
-    /* Optional: Adds indentation for the list items */
-}
+  }
+  

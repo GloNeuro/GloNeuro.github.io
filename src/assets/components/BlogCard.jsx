@@ -35,7 +35,7 @@ const BlogCard = ({ title, content }) => {
           >
 
             <button
-              className="!bg-gray-600 hover:!bg-red-600 text-white hover:text-gray-600 absolute top-0 right-1.5 !px-2 !py-1 !rounded-full !text-lg font-bold"
+              className="!bg-gray-600 hover:!bg-red-600 text-black dark:text-white hover:text-gray-600 absolute top-0 right-1.5 !px-2 !py-1 !rounded-full !text-lg font-bold"
               onClick={closeModal}
             >
               x
