@@ -43,7 +43,7 @@ function App() {
   }, [theme]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-500">
+    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-white dark:bg-black text-black dark:text-white transition-colors duration-500">
       
       {/* Pass theme and setTheme as props to ThemeSelector */}
       <ThemeSelector theme={theme} setTheme={setTheme} />

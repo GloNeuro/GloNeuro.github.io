@@ -14,7 +14,7 @@
   
   /* Dark Mode for blog-card */
   .dark .blog-card {
-    background-color: #1f2937; /* dark gray background */
+    background-color: #000000; /* dark gray background */
     border-color: white;
     color: white;
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
