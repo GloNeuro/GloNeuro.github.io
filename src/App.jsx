@@ -1,8 +1,11 @@
+// src/App.js
+
 import { useState, useEffect } from 'react';
 import Posts from './assets/components/Posts';
 import Animation1 from './assets/components/Animation1';
 import './App.css';
 import '@lottiefiles/lottie-player';
+import ThemeSelector from './assets/components/ThemeSelector'; // Updated import path for ThemeSelector
 
 function App() {
   const [theme, setTheme] = useState('system'); // 'system', 'light', 'dark'
@@ -40,29 +43,10 @@ function App() {
   }, [theme]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-white dark:bg-black text-black dark:text-white transition-colors duration-500">
+    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-500">
       
-      {/* Theme Toggle Button */}
-      <div className="mt-4 mb-6">
-        <button
-          onClick={() => setTheme('dark')}
-          className={`px-6 py-2 rounded-full mr-2 ${theme === 'dark' ? 'bg-gray-700' : 'bg-gray-300'}`}
-        >
-          Dark Mode
-        </button>
-        <button
-          onClick={() => setTheme('light')}
-          className={`px-6 py-2 rounded-full mr-2 ${theme === 'light' ? 'bg-gray-700' : 'bg-gray-300'}`}
-        >
-          Light Mode
-        </button>
-        <button
-          onClick={() => setTheme('system')}
-          className={`px-6 py-2 rounded-full ${theme === 'system' ? 'bg-gray-700' : 'bg-gray-300'}`}
-        >
-          System Default
-        </button>
-      </div>
+      {/* Pass theme and setTheme as props to ThemeSelector */}
+      <ThemeSelector theme={theme} setTheme={setTheme} />
 
       {/* Header */}
       <div className="grid grid-cols-2 gap-4">
