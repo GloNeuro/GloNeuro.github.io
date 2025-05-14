@@ -72,7 +72,7 @@
 }
 
 .active-edge {
-  stroke: yellow;
+  stroke: #8d66f9;
   stroke-width: 4;
   opacity: 1;
 }

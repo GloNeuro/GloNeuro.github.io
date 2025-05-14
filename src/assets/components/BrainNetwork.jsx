@@ -83,7 +83,7 @@ const BrainNetwork = () => {
         const padding = 10;
         const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
         rect.setAttribute("x", bbox.x - padding);
-        rect.setAttribute("y", bbox.y - padding);
+        rect.setAttribute("y", bbox.y - (padding));
         rect.setAttribute("class", "node");
         rect.setAttribute("width", bbox.width + 2 * padding);
         rect.setAttribute("height", bbox.height + 2 * padding);
@@ -192,7 +192,7 @@ const BrainNetwork = () => {
           if (edge) {
             const step = () => {
               edge.element.classList.add("active-edge");
-              gsap.to(nodes[to].element, { fill: "lime", duration: 0.1 });
+              gsap.to(nodes[to].element, { fill: "#FFC000", duration: 0.1 });
 
               // Highlight the text box if these special nodes are hit
               if (["alpha", "delta", "gamma", "a"].includes(to)) {
@@ -207,12 +207,13 @@ const BrainNetwork = () => {
 
         Object.keys(prev).forEach(to => animatePath(to));
         connectedNodes.add(startId);
-        gsap.to(nodes[startId].element, { fill: "lime", duration: 0.1 });
+        gsap.to(nodes[startId].element, { fill: "#FFC000", duration: 0.1 });
+        gsap.to(document.querySelector("#caption"),{ fill: "#FFC000", duration: 0.1 })
 
         for (const id in nodes) {
           if (!connectedNodes.has(id)) {
             gsap.to(nodes[id].element, { fill: "#444", duration: 0.1 });
-            gsap.to(nodes["text-node-bg"].element, { fill: "lime", duration: 0.1 });
+            gsap.to(nodes["text-node-bg"].element, { fill: "#8d66f9", duration: 0.1 });
           }
         }
       }
@@ -224,11 +225,13 @@ const BrainNetwork = () => {
         for (const node of Object.values(nodes)) {
           gsap.killTweensOf(node.element);
           gsap.set(node.element, { fill: "#481BC3" });
+          gsap.to(document.querySelector("#caption"),{ fill: "currentColor", duration: 0.1 })
         }
 
         document.querySelectorAll(".edge").forEach(e => {
           e.classList.remove("active-edge");
         });
+        
       }
 
       // Add event listeners
@@ -257,7 +260,7 @@ const BrainNetwork = () => {
   }, []);
 
   return (
-    <div id="brain" className='dark:text-black text-white ' style={{ height: '100vh', width: '100%' }}>
+    <div id="brain" className='text-black dark:text-white ' style={{ height: '100vh', width: '100%' }}>
       <svg 
         ref={svgRef}
         viewBox="120 500 2000 1500" 
