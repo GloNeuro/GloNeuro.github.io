@@ -210,12 +210,12 @@ const BrainNetwork = () => {
         connectedNodes.add(startId);
         gsap.to(nodes[startId].element, { fill: "#FFC000", duration: 0.1 });
         gsap.to(document.querySelector("#caption"), { fill: "#FFC000", duration: 0.1 })
+        logoGlow();
 
         for (const id in nodes) {
           if (!connectedNodes.has(id)) {
             gsap.to(nodes[id].element, { fill: "#444", duration: 0.1 });
             gsap.to(nodes["text-node-bg"].element, { fill: "#8d66f9", duration: 0.1 });
-            logoGlow();
           }
         }
       }
@@ -230,12 +230,13 @@ const BrainNetwork = () => {
       function logoGlowOff() {
         gsap.to(image, {
           filter: "none",
-          duration: 1
+          duration: 0.3,
+          repeat: -1
         });
       }
 
       function resetGraph() {
-        
+        logoGlowOff();
         activeAnimation.forEach(timeout => clearTimeout(timeout));
         activeAnimation = [];
 
@@ -243,7 +244,6 @@ const BrainNetwork = () => {
           gsap.killTweensOf(node.element);
           gsap.set(node.element, { fill: "#481BC3" });
           gsap.to(document.querySelector("#caption"), { fill: "currentColor", duration: 0.1 })
-          logoGlowOff();
         }
 
         document.querySelectorAll(".edge").forEach(e => {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Animation1 from './Animation1'
 import ThemeSelector from './ThemeSelector'
 const Navbar = () => {
@@ -38,6 +38,9 @@ const Navbar = () => {
     return (
         <div className='mt-5 flex items-center gap-[30vw] justify-between'>
             <div className="nav-part1 flex items-center justify-center">
+                <div className="glo-icon h-[10vh] w-[10vw] flex justify-center items-center">
+                    <img src="/gloneuro.png" />
+                </div>
                 <h1 className="text-4xl !text-[#481BC3] font-bold">GloNeuro</h1>
             </div>
             <div className="nav-part2 flex items-center justify-center">
