@@ -5,6 +5,7 @@ const BrainNetwork = () => {
   const svgRef = useRef(null);
 
   useEffect(() => {
+    const image = document.getElementById("logo");
     const addColoredSvgBehindCircles = async () => {
       const svg = svgRef.current;
       const circles = svg.querySelectorAll("circle");
@@ -208,30 +209,47 @@ const BrainNetwork = () => {
         Object.keys(prev).forEach(to => animatePath(to));
         connectedNodes.add(startId);
         gsap.to(nodes[startId].element, { fill: "#FFC000", duration: 0.1 });
-        gsap.to(document.querySelector("#caption"),{ fill: "#FFC000", duration: 0.1 })
+        gsap.to(document.querySelector("#caption"), { fill: "#FFC000", duration: 0.1 })
 
         for (const id in nodes) {
           if (!connectedNodes.has(id)) {
             gsap.to(nodes[id].element, { fill: "#444", duration: 0.1 });
             gsap.to(nodes["text-node-bg"].element, { fill: "#8d66f9", duration: 0.1 });
+            logoGlow();
           }
         }
       }
+      function logoGlow() {
+        gsap.to(image, {
+          filter: "url(#glow)",
+          delay: 0.8,
+          duration: 1
+        });
+      }
+
+      function logoGlowOff() {
+        gsap.to(image, {
+          filter: "none",
+          duration: 1
+        });
+      }
 
       function resetGraph() {
+        
         activeAnimation.forEach(timeout => clearTimeout(timeout));
         activeAnimation = [];
 
         for (const node of Object.values(nodes)) {
           gsap.killTweensOf(node.element);
           gsap.set(node.element, { fill: "#481BC3" });
-          gsap.to(document.querySelector("#caption"),{ fill: "currentColor", duration: 0.1 })
+          gsap.to(document.querySelector("#caption"), { fill: "currentColor", duration: 0.1 })
+          logoGlowOff();
         }
 
         document.querySelectorAll(".edge").forEach(e => {
           e.classList.remove("active-edge");
         });
-        
+
       }
 
       // Add event listeners
@@ -251,8 +269,8 @@ const BrainNetwork = () => {
       if (svgRef.current) {
         const nodes = svgRef.current.querySelectorAll(".node");
         nodes.forEach(node => {
-          node.removeEventListener("mouseenter", () => {});
-          node.removeEventListener("mouseleave", () => {});
+          node.removeEventListener("mouseenter", () => { });
+          node.removeEventListener("mouseleave", () => { });
         });
       }
       gsap.killTweensOf("*");
@@ -261,10 +279,10 @@ const BrainNetwork = () => {
 
   return (
     <div id="brain" className='text-black dark:text-white ' style={{ height: '100vh', width: '100%' }}>
-      <svg 
+      <svg
         ref={svgRef}
-        viewBox="120 500 2000 1500" 
-        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="120 500 2000 1500"
+        xmlns="http://www.w3.org/2000/svg"
         id="brain-svg"
         style={{ width: '100%', height: '100%', overflowX: 'hidden' }}
       >
@@ -334,6 +352,13 @@ const BrainNetwork = () => {
         <text id="caption" x="800" y="1280" fontSize="50" fill="currentColor" fontWeight="bold">
           Studying the Brain to understand the Brain
         </text>
+        <defs>
+          <filter id="glow">
+            <feDropShadow dx="0" dy="0" stdDeviation="40" flood-color="#FFC000" flood-opacity="1" />
+          </filter>
+        </defs>
+
+        <image id="logo" href="/gloneuro.png" x="900" y="700" width="530" height="530" />
       </svg>
     </div>
   );
