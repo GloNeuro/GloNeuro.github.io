@@ -37,15 +37,18 @@ const Navbar = () => {
     }, [theme]);
     return (
         <div className='mt-5 flex items-center gap-[30vw] justify-between'>
-            <div className="flex items-center justify-center">
-            <h1 className="text-4xl !text-[#481BC3] font-bold">GloNeuro</h1>
-            <div className="flex items-center justify-center scale-125">
-                <Animation1 />
+            <div className="nav-part1 flex items-center justify-center">
+                <h1 className="text-4xl !text-[#481BC3] font-bold">GloNeuro</h1>
             </div>
+            <div className="nav-part2 flex items-center justify-center">
+                <div className="flex items-center justify-center scale-125">
+                    <Animation1 />
+                </div>
+                <div className="flex items-center justify-center">
+                    {/* Pass theme and setTheme as props to ThemeSelector */}
+                    <ThemeSelector theme={theme} setTheme={setTheme} />
+                </div>
             </div>
-            {/* Pass theme and setTheme as props to ThemeSelector */}
-            <ThemeSelector theme={theme} setTheme={setTheme} />
-
         </div>
     )
 }
