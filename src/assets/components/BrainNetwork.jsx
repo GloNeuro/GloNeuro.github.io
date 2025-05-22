@@ -1,8 +1,33 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
 
 const BrainNetwork = () => {
   const svgRef = useRef(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const tl1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#navi1",
+        scroller: "body",
+        start: "top 0%",
+        end: "top 30%",
+        scrub: 1,
+        pin: true
+      }
+    });
+
+    tl1.to('#logo',{
+      height: "10vh",
+      width: "10vw",
+      x: "-58vw",
+      y:"-50vh",
+      opacity: "0"
+    });
+  }, []);
 
   useEffect(() => {
     const image = document.getElementById("logo");

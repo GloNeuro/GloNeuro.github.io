@@ -1,7 +1,38 @@
 import { useRef, useState, useEffect } from 'react';
 import Animation1 from './Animation1'
 import ThemeSelector from './ThemeSelector'
+import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
+
 const Navbar = () => {
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#navi1",
+                scroller: "body",
+                start: "top 0%",
+                end: "top 30%",
+                scrub: 2,
+                pin: true
+            }
+        });
+
+        tl.to('#navi1', {
+            '--gap-size': '30vw',
+            duration: 1,
+        });
+
+        tl.to('#icon', {
+            opacity: 1,
+            y: 0,
+            duration: 1
+        }, "<");
+    }, []);
+
+
     const [theme, setTheme] = useState('system'); // 'system', 'light', 'dark'
 
     // 1. Detect system preference and initialize theme
@@ -36,10 +67,10 @@ const Navbar = () => {
         }
     }, [theme]);
     return (
-        <div className='mt-5 flex items-center gap-[30vw] justify-between'>
+        <div id="navi1" className='mt-5 flex items-center justify-center'>
             <div className="nav-part1 flex items-center justify-center">
                 <div className="glo-icon h-[10vh] w-[10vw] flex justify-center items-center">
-                    <img src="/gloneuro.png" />
+                    <img id="icon" className='icon' src="/gloneuro.png" />
                 </div>
                 <h1 className="text-4xl !text-[#481BC3] font-bold">GloNeuro</h1>
             </div>

@@ -104,3 +104,13 @@ body {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
+#navi1 {
+  --gap-size: 0vw;
+  gap: var(--gap-size);
+}
+
+#icon {
+  transform: translateY(50px);
+  opacity: 0;
+}

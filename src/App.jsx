@@ -3,9 +3,11 @@ import { useState, useEffect } from 'react';
 import Posts from './assets/components/Posts';
 import './App.css';
 import '@lottiefiles/lottie-player';
-import ThemeSelector from './assets/components/ThemeSelector'; // Updated import path for ThemeSelector
 import BrainNetwork from './assets/components/BrainNetwork';
 import Navbar from './assets/components/Navbar';
+import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
+// gsap.registerPlugin(ScrollTrigger); 
 function App() {
 
   return (
