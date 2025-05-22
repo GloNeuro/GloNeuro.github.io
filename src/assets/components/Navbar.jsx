@@ -27,8 +27,11 @@ const Navbar = () => {
 
         tl.to('#icon', {
             opacity: 1,
+            duration: 2
+        }, "<");
+        tl.to('#icon', {
             y: 0,
-            duration: 1
+            duration: 0.5
         }, "<");
     }, []);
 

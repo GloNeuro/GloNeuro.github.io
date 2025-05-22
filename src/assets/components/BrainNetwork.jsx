@@ -15,7 +15,7 @@ const BrainNetwork = () => {
         scroller: "body",
         start: "top 0%",
         end: "top 30%",
-        scrub: 1,
+        scrub: 2,
         pin: true
       }
     });
@@ -23,7 +23,7 @@ const BrainNetwork = () => {
     tl1.to('#logo',{
       height: "10vh",
       width: "10vw",
-      x: "-58vw",
+      x: "-72vw",
       y:"-50vh",
       opacity: "0"
     });
