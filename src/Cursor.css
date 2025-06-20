@@ -1,0 +1,14 @@
+#cursor {
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: fixed;
+    font-size: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 9;
+    opacity: 0;
+}

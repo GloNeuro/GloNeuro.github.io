@@ -1,6 +1,6 @@
 .blog-card {
     width: 20vw;
-    height: 15vw;
+    height: 20vh;
     border: 2px solid black;
     margin: 34px auto;
     align-content: center;
@@ -63,3 +63,10 @@
     margin-left: 1.5em;
   }
   
+  #overlay {
+    height: 20vh;
+    width: 20vw;
+    background-color: transparent;
+    position: absolute;
+    z-index: 10;
+}

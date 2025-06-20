@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import BlogCard from './BlogCard';
 
-const Posts = () => {
+const Posts = ( {ref,ref2} ) => {
   const [posts, setPosts] = useState([]);
   const [loadingDots, setLoadingDots] = useState('');
   const apiRoot = import.meta.env.VITE_API_ROOT;
@@ -34,6 +34,9 @@ const Posts = () => {
           posts.map(post => (
             <div key={post.id} className="w-full sm:w-1/2 md:w-1/3">
               <BlogCard
+                ref = {ref}
+                ref2 = {ref2}
+                date={post?.date || ''}
                 title={post?.title?.rendered || 'Untitled'}
                 content={post?.content?.rendered || ''}
               />

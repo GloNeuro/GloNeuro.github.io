@@ -1,0 +1,47 @@
+### GET /
+GET https://gloneuro.org/wp-json/wp/v2/pages
+
+### Register a user POST /auth/register
+POST http://localhost:5003/auth/register
+Content-Type: application/json
+
+{
+    "username": "gilgamesh@gmail.com",
+    "password": "123123123"
+}
+
+### LOGIN a user POST /auth/login
+POST http://localhost:5003/auth/login
+Content-Type: application/json
+
+{
+    "username": "gilgamesh@gmail.com",
+    "password": "123123123"
+}
+
+### Fetch all todos GET /TODOS (protected)
+GET http://localhost:5003/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ1MjQwMDY2LCJleHAiOjE3NDUzMjY0NjZ9.jGeg5OwKqT6NVHutUH_CU8CU-181jIp7IyDaOhnMkWo
+
+### Creates a new todo POST /TODOS (protected)
+POST http://localhost:5003/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ1MjQwMDY2LCJleHAiOjE3NDUzMjY0NjZ9.jGeg5OwKqT6NVHutUH_CU8CU-181jIp7IyDaOhnMkWo
+Content-Type: application/json
+
+{
+    "task": "Finish coding the projects"
+}
+
+### Update a todo PUT /TODOS/:id (protected)
+PUT http://localhost:5003/todos/2
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ1MjQwMDY2LCJleHAiOjE3NDUzMjY0NjZ9.jGeg5OwKqT6NVHutUH_CU8CU-181jIp7IyDaOhnMkWo
+
+{
+    "completed": 1
+}
+
+### Delete a todo DELETE /TODOS/:id (protected)
+DELETE http://localhost:5003/todos/2
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ1MjQwMDY2LCJleHAiOjE3NDUzMjY0NjZ9.jGeg5OwKqT6NVHutUH_CU8CU-181jIp7IyDaOhnMkWo
