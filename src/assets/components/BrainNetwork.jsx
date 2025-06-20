@@ -243,21 +243,27 @@ const BrainNetwork = () => {
           }
         }
       }
-      function logoGlow() {
-        gsap.to(image, {
+      let logoG1 = gsap.timeline({ paused:true })
+
+      logoG1.to(image, {
           filter: "url(#glow)",
-          delay: 0.8,
           duration: 1
         });
-      }
 
-      function logoGlowOff() {
-        gsap.to(image, {
-          filter: "none",
-          duration: 0.3,
-          repeat: -1
-        });
-      }
+      // function logoGlow() {
+      //   gsap.to(image, {
+      //     filter: "url(#glow)",
+      //     delay: 0.8,
+      //     duration: 1
+      //   });
+      // }
+
+      // function logoGlowOff() {
+      //   gsap.to(image, {
+      //     filter: "none",
+      //     duration: 0.3,
+      //   });
+      // }
 
       function resetGraph() {
         activeAnimation.forEach(timeout => clearTimeout(timeout));
@@ -281,18 +287,31 @@ const BrainNetwork = () => {
       for (const node of Object.values(nodes)) {
         node.element.addEventListener("mouseenter", () => runDijkstra(node.id));
         node.element.addEventListener("mouseenter", () => {
-          if (!isHovered) {
-            isHovered = true;
-            logoGlow();
-          }
+          gsap.delayedCall(0.8, () => logoG1.play());
         });
+        
+        node.element.addEventListener("mouseleave", () =>{
+          logoG1.reverse(0.8);
+        });
+
+        // node.element.addEventListener("mouseenter", () => {
+        //   if (!isHovered) {
+        //     isHovered = true;
+        //     logoGlow();
+        //   }
+        // });
+
+
         node.element.addEventListener("mouseleave", resetGraph);
-        node.element.addEventListener("mouseleave", (e) => {
-          if (!node.element.contains(e.relatedTarget)) {
-            isHovered = false;
-            logoGlowOff();
-          }
-        });
+        
+        
+        // node.element.addEventListener("mouseleave", (e) => {
+        //   if (!node.element.contains(e.relatedTarget)) {
+        //     isHovered = false;
+        //     if (isHovered==false){logoGlowOff();}
+            
+        //   }
+        // });
 
       }
     };
