@@ -20,11 +20,11 @@ const BrainNetwork = () => {
       }
     });
 
-    tl1.to('#logo',{
+    tl1.to('#logo', {
       height: "10vh",
       width: "10vw",
       x: "-72vw",
-      y:"-50vh",
+      y: "-50vh",
       opacity: "0"
     });
   }, []);
@@ -235,7 +235,6 @@ const BrainNetwork = () => {
         connectedNodes.add(startId);
         gsap.to(nodes[startId].element, { fill: "#FFC000", duration: 0.1 });
         gsap.to(document.querySelector("#caption"), { fill: "#FFC000", duration: 0.1 })
-        logoGlow();
 
         for (const id in nodes) {
           if (!connectedNodes.has(id)) {
@@ -261,7 +260,6 @@ const BrainNetwork = () => {
       }
 
       function resetGraph() {
-        logoGlowOff();
         activeAnimation.forEach(timeout => clearTimeout(timeout));
         activeAnimation = [];
 
@@ -275,12 +273,27 @@ const BrainNetwork = () => {
           e.classList.remove("active-edge");
         });
 
-      }
+        // logoGlowOff();
 
+      }
+      let isHovered = false;
       // Add event listeners
       for (const node of Object.values(nodes)) {
         node.element.addEventListener("mouseenter", () => runDijkstra(node.id));
+        node.element.addEventListener("mouseenter", () => {
+          if (!isHovered) {
+            isHovered = true;
+            logoGlow();
+          }
+        });
         node.element.addEventListener("mouseleave", resetGraph);
+        node.element.addEventListener("mouseleave", (e) => {
+          if (!node.element.contains(e.relatedTarget)) {
+            isHovered = false;
+            logoGlowOff();
+          }
+        });
+
       }
     };
 
